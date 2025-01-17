@@ -21,15 +21,7 @@ describe('Feature: Organize webinars', () => {
   };
 
   function expectWebinarToEqual(webinar: Webinar) {
-    expect(webinar).toEqual({
-      props: {
-        id: 'id-1',
-        organizerId: 'user-alice-id',
-        title: 'Webinar title',
-        startDate: new Date('2024-01-10T10:00:00.000Z'),
-        endDate: new Date('2024-01-10T11:00:00.000Z'),
-        seats: 100,
-      },
+    const expected = {
       initialState: {
         id: 'id-1',
         organizerId: 'user-alice-id',
@@ -38,7 +30,18 @@ describe('Feature: Organize webinars', () => {
         endDate: new Date('2024-01-10T11:00:00.000Z'),
         seats: 100,
       },
-    });
+      participants: [],
+      props: {
+        id: 'id-1',
+        organizerId: 'user-alice-id',
+        title: 'Webinar title',
+        startDate: new Date('2024-01-10T10:00:00.000Z'),
+        endDate: new Date('2024-01-10T11:00:00.000Z'),
+        seats: 100,
+      }
+    };
+    
+    expect(webinar).toEqual(expected);
   }
 
   beforeEach(() => {
